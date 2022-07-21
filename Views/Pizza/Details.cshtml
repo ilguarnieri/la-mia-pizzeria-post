@@ -1,6 +1,13 @@
 ﻿@model Pizza
 @{
     string[] ingredienti = Model.Ingredients.Split(",");
+
+    bool photoPresent = true;
+
+    if(Model.Photo == null)
+    {
+        photoPresent = false;
+    }
 }
 
 <main class="patter-background p-3 pt-5 pb-5 welcome-wrapper d-flex flex-column align-items-center h-100 w-100 justify-content-center">
@@ -15,7 +22,16 @@
                 <h5 class="m-0 fw-bold">@Model.Price €</h5>
             </div>
 
-            <img src="/img/@Model.Photo" alt="foto-pizza"/>
+
+            @if (photoPresent)
+            {
+                <img src="@Model.Photo" alt="foto-pizza"/>
+            }
+            else
+            {
+                <img class="w-75" src="/img/back-no-pizza.png" alt="back-no-pizza"/>
+            }
+                        
             
         </div>
 

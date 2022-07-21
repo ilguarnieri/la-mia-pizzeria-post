@@ -64,6 +64,24 @@ a{
     color: red !important;
 }
 
+.pizz_button{
+    border-radius: 999px;
+    font-weight: bold;
+    border: 0;
+    padding: 4px;
+}
+
+.button_save{
+    color: white;
+    background-color: red;
+    transition: all 200ms linear;
+}
+
+.button_save:hover{
+    background-color: forestgreen;
+}
+
+
 /*------------------------------- I N D E X ------------------------------*/
 .welcome-wrapper {
     color: white;
@@ -176,4 +194,24 @@ a{
     color: white;
     left: 0;
     top:  0;
+}
+
+
+
+/*------------------------------- C R E A T E ------------------------------*/
+.pizza-create {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+}
+
+    .pizza-create .form-control:focus {
+        border-color: rgb(255 0 0 / 15%);
+        box-shadow: 0 0 0 0.25rem rgb(255 0 0 / 25%);
+    }
+
+
+.required-wrapper{
+    bottom: 20px;
+    right:  20px;
 }

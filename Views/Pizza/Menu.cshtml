@@ -22,7 +22,15 @@
 
                         @*Immagine e prezzo*@
                         <div class="img-wrapper mb-3">
-                            <img src="/img/@pizza.Photo">
+
+                            @if (@pizza.Photo != null)
+                            {
+                                <img src="@pizza.Photo" alt="foto-pizza"/>
+                            }
+                            else
+                            {
+                                <img src="/img/back-no-pizza.png" alt="back-no-pizza"/>
+                            }
 
                             @*prezzo*@
                             <div class="price-wrap d-flex justify-content-end">

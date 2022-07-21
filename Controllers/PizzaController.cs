@@ -60,6 +60,8 @@ namespace la_mia_pizzeria_static.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Pizza pizza)
         {
+            int newPizzaId;
+
             if (!ModelState.IsValid)
             {
                 return View("Create", pizza);
@@ -70,9 +72,11 @@ namespace la_mia_pizzeria_static.Controllers
                 pizza.Ingredients = pizza.Ingredients.Replace(", ", ",");
                 db.Pizzas.Add(pizza);
                 db.SaveChanges();
+
+                newPizzaId = db.Pizzas.OrderByDescending(p => p.Id).Select(p => p.Id).First();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Pizza", new { id = newPizzaId });
         }
 
         // GET: HomeController1/Edit/5
