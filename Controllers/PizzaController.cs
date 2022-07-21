@@ -51,22 +51,28 @@ namespace la_mia_pizzeria_static.Controllers
         // GET: HomeController1/Create
         public ActionResult Create()
         {
+            ViewData["Title"] = "Crea pizza";
             return View();
         }
 
         // POST: HomeController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Pizza pizza)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return View("Create", pizza);
             }
-            catch
+
+            using(PizzaContext db = new PizzaContext())
             {
-                return View();
+                pizza.Ingredients = pizza.Ingredients.Replace(", ", ",");
+                db.Pizzas.Add(pizza);
+                db.SaveChanges();
             }
+
+            return RedirectToAction("Index");
         }
 
         // GET: HomeController1/Edit/5

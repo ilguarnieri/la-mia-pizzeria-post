@@ -16,13 +16,16 @@
                 <li class="nav-item">
                     <a id="menu" class="nav-link text-dark" asp-area="" asp-controller="Pizza" asp-action="Menu">Menù</a>
                 </li>
+                 <li class="nav-item">
+                    <a id="creapizza" class="nav-link text-dark" asp-area="" asp-controller="Pizza" asp-action="Create">Crea una pizza</a>
+                </li>
             </ul>
         </div>
     </div>
     
     <script>
         const ind = "@ViewData["Title"].ToString().ToLower()";
-        const item = document.getElementById(ind);
+        const item = document.getElementById(ind.replace(/ /g, ""));
         item.classList.add("active-item");
     </script>
 </nav>

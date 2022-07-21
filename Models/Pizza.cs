@@ -11,17 +11,23 @@ namespace la_mia_pizzeria_static.Models
 
         [Required]
         [Column("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [Column("ingredients", TypeName = "text")]
-        public string Ingredients { get; private set; }
+        public string Ingredients { get; set; }
 
         [Column("photo")]
-        public string Photo { get; private set; }
+        public string? Photo { get; set; }
 
         [Required]
         [Column("price", TypeName ="decimal(5,2)")]
-        public decimal Price { get; private set; }
+        public decimal Price { get; set; }
+
+
+        public Pizza()
+        {
+
+        }
 
         public Pizza(string name, string ingredients, string photo, decimal price)
         {

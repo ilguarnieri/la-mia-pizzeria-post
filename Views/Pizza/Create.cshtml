@@ -1,0 +1,41 @@
+﻿
+@model Pizza
+
+<main class="patter-background p-3 pt-5 pb-5 welcome-wrapper d-flex flex-column align-items-center h-100 w-100 justify-content-center">
+
+    <section class="pizza-detail container col-12 col-lg-9 col-xl-8 d p-3 p-md-5">
+
+        <form asp-controller="Pizza" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nome della pizza*</label>
+                <input asp-for="Name"  type="text" class="form-control" id="nomePizza" aria-describedby="nomePizza" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Ingredienti*</label>
+                <input asp-for="Ingredients"  type="text" class="form-control" id="ingredientiPizza" aria-describedby="ingredientiPizza" required>
+                <div class="m-0 form-text">Inserisci gli ingredienti separandoli con una virgola</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Prezzo*</label>
+                <input asp-for="Price" type="number" min="0.5" step="0.10"  class="form-control" id="prezzoPizza" aria-describedby="prezzoPizza" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Inserisci URL di una foto</label>
+                <input asp-for="Photo" type="url" pattern="https://.*" class="form-control" id="urlPizza" aria-describedby="urlPizza" placeholder="https://example.com">
+            </div>
+
+            <div class="mb-3 form-check">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+
+            <div class="m-0 form-text">* Campi obbligatori</div>
+    </section>
+
+</main>
