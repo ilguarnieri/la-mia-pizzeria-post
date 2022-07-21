@@ -23,7 +23,7 @@ namespace la_mia_pizzeria_static.Models
         public string? Photo { get; set; }
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
-        [Column("price", TypeName ="decimal(5,2)")]
+        [Column("price", TypeName = "decimal(5,2)")]
         [Range(1,30, ErrorMessage =  "Inserisci un prezzo valido")]
         public decimal Price { get; set; }
 
