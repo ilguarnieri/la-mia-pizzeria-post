@@ -64,11 +64,16 @@ namespace la_mia_pizzeria_static.Controllers
 
             if (!ModelState.IsValid)
             {
+                ViewData["Title"] = "Crea pizza";
                 return View("Create", pizza);
             }
 
             using(PizzaContext db = new PizzaContext())
             {
+                
+                
+
+
                 pizza.Ingredients = pizza.Ingredients.Replace(", ", ",");
                 db.Pizzas.Add(pizza);
                 db.SaveChanges();

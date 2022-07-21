@@ -9,18 +9,21 @@ namespace la_mia_pizzeria_static.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Il campo è obbligatorio")]
         [Column("name")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Il campo è obbligatorio")]
         [Column("ingredients", TypeName = "text")]
         public string Ingredients { get; set; }
 
         [Column("photo")]
+        [Url]
         public string? Photo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Il campo è obbligatorio")]
         [Column("price", TypeName ="decimal(5,2)")]
+        [Range(1,30, ErrorMessage =  "Inserisci un prezzo valido")]
         public decimal Price { get; set; }
 
 
