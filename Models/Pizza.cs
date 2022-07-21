@@ -11,6 +11,7 @@ namespace la_mia_pizzeria_static.Models
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
         [Column("name")]
+        [StringLength(80, ErrorMessage = "Il nome può avere massimo 80 caratteri")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
