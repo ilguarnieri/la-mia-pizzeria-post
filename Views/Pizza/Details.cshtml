@@ -1,0 +1,41 @@
+﻿@model Pizza
+@{
+    string[] ingredienti = Model.Ingredients.Split(",");
+}
+
+<main class="patter-background p-3 pt-5 pb-5 welcome-wrapper d-flex flex-column align-items-center h-100 w-100 justify-content-center">
+
+    <h4 class="fw-bold mb-3"><a asp-controller="Pizza" asp-action="Menu">Torna al Menù</a></h4>
+
+    <section class="pizza-detail container col-12 col-lg-9 col-xl-8 d-flex-column d-md-flex p-2 p-sm-3 p-md-5">
+
+        <div class="col-12 col-md-6 d-flex justify-content-center position-relative">
+
+            <div class="price-details position-absolute d-flex justify-content-center align-items-center p-1">
+                <h5 class="m-0 fw-bold">@Model.Price €</h5>
+            </div>
+
+            <img src="/img/@Model.Photo" alt="foto-pizza"/>
+            
+        </div>
+
+        <div class="col-12 col-md-6">
+
+            <h2 class="text-center text-name" >@Model.Name</h2>
+
+            <div class="ingredients-wrapper pt-3 p-4 p-sm-5">
+                <p  class="mb-2 fw-bold">Ingredienti:</p>
+
+                <ul>
+                    @foreach(string  ingrediente in ingredienti)
+                    {
+                        <li class="ms-4">@ingrediente</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+</main>

@@ -1,0 +1,46 @@
+﻿
+@model List<Pizza>
+
+<main class="patter-background p-3 welcome-wrapper d-flex flex-column align-items-center h-100 w-100 justify-content-center">
+
+    @if(Model.Count() == 0)
+    {
+        <div class="p-3 text-center">
+            <h1>Attualmente non è presente nessuna pizza nella nostra applicazione!</h1>
+        </div>
+    }
+
+    else
+    {
+        <div class="container-fluid container-lg d-flex justify-content-center flex-wrap gap-4 p-3">
+
+            <ul>
+                @foreach(Pizza pizza in Model){
+                    <a asp-area="" asp-controller="Pizza" asp-action="Details" asp-route-id="@pizza.Id">
+
+                        <li class="pizza-wrapper d-flex flex-column align-items-center p-4 position-relative mb-3">
+
+                        @*Immagine e prezzo*@
+                        <div class="img-wrapper mb-3">
+                            <img src="/img/@pizza.Photo">
+
+                            @*prezzo*@
+                            <div class="price-wrap d-flex justify-content-end">
+                            <p class="price-pizza m-0 pe-2">@pizza.Price €</p>
+                            </div>
+                        </div>
+
+                        @*Nome pizza*@
+                        <h3 class="text-name">@pizza.Name</h3>
+
+                    </li>
+
+                    </a>                    
+                }
+            </ul>              
+
+        </div>
+    }
+
+    
+</main>
